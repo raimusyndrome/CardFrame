@@ -12,7 +12,6 @@
     height: 389px; 
     margin: 0;
     padding: 10px;
-    vertical-align: middle;
     background-color: #ffd700;
 }
 
@@ -24,7 +23,9 @@
 
 .header, .middle, .footer
 {
-    height: 10%; 
+    height: 9%; 
+    overflow: hidden;
+    padding : 1px;
 }
 
 .name, .manacost, .cardtype, .rarity, .power, .toughness
@@ -32,18 +33,26 @@
     height: 100%;
 }
 
-/* 
- * 上下左右　中央寄せ
+/*
+ * 左右中央寄せ
  */
-.rarity, .power, .toughness
+.horizon_centered
 {
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
 
-.rarity span, .power span, .toughness span
+/*
+ * 上下中央寄せ
+ */
+.vertical_centered
 {
+    display: table;
+}
+
+.vertical_centered span
+{
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .header {
