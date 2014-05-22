@@ -1,0 +1,119 @@
+/*
+ * A4 = 210 x 297 (mm x mm)
+ * 300dpi -> 2480 x 3508 (px x px)
+ */ 
+ 
+.frame {
+    /*
+    width: 826px;
+    height: 1169px; 
+    */
+    width: 275px;
+    height: 389px; 
+    margin: 0;
+    padding: 10px;
+    vertical-align: middle;
+    background-color: #ffd700;
+}
+
+.header, .illust, .middle, .oracle, .footer
+{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.header, .middle, .footer
+{
+    height: 10%; 
+}
+
+.name, .manacost, .cardtype, .rarity, .power, .toughness
+{
+    height: 100%;
+}
+
+/* 
+ * 上下左右　中央寄せ
+ */
+.rarity, .power, .toughness
+{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.rarity span, .power span, .toughness span
+{
+}
+
+.header {
+    background-color: #696969;
+}
+
+.illust {
+    clear: both;
+    height: 30%;
+    background-color: #ffdead;
+}
+
+.middle {
+    background-color: #c0c0c0;
+}
+
+.oracle {
+    clear: both;
+    height: 40%;
+    background-color: #ffb6c1;
+}
+
+.footer {
+    background-color: #fffacd;
+}
+
+.name {
+    width: 60%;
+    float: left;
+    background-color: #1e90ff;
+}
+
+.manacost {
+    width: 40%;
+    float: right;
+    text-align: right;
+    background-color: #00fa9a;
+}
+
+.cardtype {
+    width: 90%;
+    float: left;
+    background-color: #fa8072;
+}
+
+.rarity {
+    width: 10%;
+    float: right;
+    background-color: #6a5acd;
+}
+
+.creaturesize {
+    width: 20%;
+    height: 100%;
+    float: right;
+}
+
+.power {
+    width: 50%;
+    float: left;
+    background-color: #4169e1;
+}
+
+.toughness {
+    width: 50%;
+    float: right;
+    background-color: #ff1493;
+}
+
+.frameend {
+    clear: both;
+    visibility: hidden;
+}
