@@ -1,0 +1,14 @@
+
+.frame {
+    float: left;
+}
+
+.cardRow {
+    clear: both;
+    overflow: hidden;
+}
+
+.pagebreak {
+    page-break-before: always;
+}
+
