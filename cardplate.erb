@@ -8,29 +8,30 @@
         <link rel="stylesheet" href="cardplate.css">
     </head>
     <body>
+        <% require "./mtg_card_data.rb" %>
         <% ROW = 3; COLUMN = 3 %>
         <% rowcnt = 0; colcnt = 0 %>
-        <% cardNum = 10 %>
-        <% cardData = [] %>
-        <% cardNum.times{ |c|  cardData.push c } %>
+        <% cardData = MTGParser "THS_BNG_printer.csv" %>
         <% cardData.each do |card| %>
-            <% if colcnt % COLUMN == 0 then %>
-                <div class="cardRow">
-            <% end %>
-            <% render :partial => "mtg_card", :locals => { :card => card } %>
-            <div class="frame"></div>
-            <% if colcnt % COLUMN == COLUMN - 1 then %>
-                </div>
-                <% if rowcnt % ROW == ROW - 1 then %>
-                    <div class="pagebreak" ></div>
+            <% cardData.printNum.times do |x| %>
+                <% if colcnt % COLUMN == 0 then %>
+                    <div class="cardRow">
+                    <% end %>
+                    <% render :partial => "mtg_card", :locals => { :card => card } %>
+                    <div class="frame"></div>
+                    <% if colcnt % COLUMN == COLUMN - 1 then %>
+                    </div>
+                    <% if rowcnt % ROW == ROW - 1 then %>
+                        <div class="pagebreak" ></div>
+                    <% end %>
+                    <% rowcnt += 1 %>
                 <% end %>
-                <% rowcnt += 1 %>
+                <% colcnt += 1 %>
             <% end %>
-            <% colcnt += 1 %>
         <% end %>
         <% if colcnt % COLUMN != 0 then %>
-            </div>
-        <% end %>
+        </div>
+    <% end %>
 </body>
 </html>
 
