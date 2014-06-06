@@ -1,6 +1,8 @@
 require "CSV"
 
 class CardData
+    attr_reader :printNum
+
     module ColNo
         COST = 2
 
@@ -31,6 +33,8 @@ class CardData
         CARDNO = 30
         CARDSET = 40
         RARITY = 41
+
+        PRINTNUM = 44
     end
 
     def initialize
@@ -45,6 +49,11 @@ class CardData
        @cardNo = row[ColNo::CARDNO];
        @cardSet = row[ColNo::CARDSET];
        @rarity = row[ColNo::RARITY];
+
+       @printNum = row[ColNo::PRINTNUM];
+       if @printNum.nil? then
+           @printNum = 0
+       end
     end
 
     def to_s
