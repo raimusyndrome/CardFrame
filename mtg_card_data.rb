@@ -1,7 +1,7 @@
 require "CSV"
 
 class CardData
-    attr_reader :printNum
+    attr_reader :printNum, :rarity
 
     module ColNo
         COST = 2
@@ -69,6 +69,34 @@ class CardData
         return str;
     end
 
+    def getName
+        return @face.name
+    end
+
+    def getColor
+        return @face.color
+    end
+
+    def getType
+        return @face.getType
+    end
+
+    def getText
+        return @face.text
+    end
+
+    def getPower
+        return @face.power
+    end
+
+    def getToughness
+        return @face.toughness
+    end
+
+    def getLoyalty
+        return @face.loyalty
+    end
+
     module SideType
         FACE = 0
         BACK = 1
@@ -76,6 +104,7 @@ class CardData
 
     class Side
         attr_reader :name, :color, :text
+        attr_reader :power, :toughness, :loyalty
 
         def initialize type
             @type = type

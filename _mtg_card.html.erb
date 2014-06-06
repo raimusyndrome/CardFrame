@@ -2,30 +2,30 @@
 <div class="frame">
     <div class="header">
         <div class="name vertical_centered">
-            <span>name</span>
+            <span><%= card.getName %></span>
         </div>
         <div class="manacost vertical_centered">
-            <span>BBRRRGGG</span>
+            <span><%= card.getColor %></span>
         </div>
     </div>
     <div class="illust">
     </div>
     <div class="middle">
         <div class="cardtype vertical_centered">
-            <span>type</span>
+            <span><%= card.getType %></span>
         </div>
         <div class="rarity vertical_centered horizon_centered">
-            <span>C</span>
+            <span><%= card.rarity %></span>
         </div>
     </div>
-    <div class="oracle">rule</div>
+    <div class="oracle"><%= card.getText %></div>
     <div class="footer">
         <div class="creaturesize">
             <div class="power vertical_centered horizon_centered">
-                <span>15</span>
+                <span><%= card.getPower %></span>
             </div>
             <div class="toughness vertical_centered horizon_centered">
-                <span>20</span>
+                <span><%= card.getToughness %></span>
             </div>
         </div>
     </div>
