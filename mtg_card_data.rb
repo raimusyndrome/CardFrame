@@ -1,7 +1,7 @@
 require "CSV"
 
 class CardData
-    attr_reader :printNum, :rarity
+    attr_reader :printNum, :rarity, :cost
 
     module ColNo
         COST = 2
@@ -161,6 +161,7 @@ end
 def MTGParser file
     cardlist = Array.new;
     open( file, "r:Shift_JIS:UTF-8", undef: :replace) do |f|
+    # open( file, "r", undef: :replace) do |f|
         CSV.new( f, headers: true, converters: :numeric ).each do |row|
             card = CardData.new
 

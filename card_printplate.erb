@@ -8,30 +8,32 @@
         <link rel="stylesheet" href="cardplate.css">
     </head>
     <body>
-        <% require "./mtg_card_data.rb" %>
-        <% ROW = 3; COLUMN = 3 %>
-        <% rowcnt = 0; colcnt = 0 %>
-        <% cardData = MTGParser "THS_BNG_printer.csv" %>
-        <% cardData.each do |card| %>
-            <% cardData.printNum.times do |x| %>
-                <% if colcnt % COLUMN == 0 then %>
+        <%- require "erb" -%>
+        <%- require "./mtg_card_data.rb" -%>
+        <%- ROW = 3; COLUMN = 3 -%>
+        <%- rowcnt = 0; colcnt = 0 -%>
+        <%- cardData = MTGParser "CardDataBase/M14_printer.csv" -%>
+        <%- erb = ERB.new(File.read("_mtg_card.html.erb"), nil, nil, "_erbout2") -%>
+        <%- cardData.each do |card| -%>
+            <%- card.printNum.times do |x| -%>
+                <%- if colcnt % COLUMN == 0 then -%>
                     <div class="cardRow">
-                    <% end %>
-                    <% render :partial => "mtg_card", :locals => { :card => card } %>
-                    <div class="frame"></div>
-                    <% if colcnt % COLUMN == COLUMN - 1 then %>
+                <%- end -%>
+                <div class="frame"></div>
+                <%- erb.result(binding) -%>
+                <%- if colcnt % COLUMN == COLUMN - 1 then -%>
                     </div>
-                    <% if rowcnt % ROW == ROW - 1 then %>
+                    <%- if rowcnt % ROW == ROW - 1 then -%>
                         <div class="pagebreak" ></div>
-                    <% end %>
-                    <% rowcnt += 1 %>
-                <% end %>
-                <% colcnt += 1 %>
-            <% end %>
-        <% end %>
-        <% if colcnt % COLUMN != 0 then %>
-        </div>
-    <% end %>
+                    <%- end -%>
+                    <%- rowcnt += 1 -%>
+                <%- end -%>
+                <%- colcnt += 1 -%>
+            <%- end -%>
+        <%- end -%>
+        <%- if colcnt % COLUMN != 0 then -%>
+            </div>
+        <%- end -%>
 </body>
 </html>
 
