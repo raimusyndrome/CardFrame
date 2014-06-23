@@ -80,13 +80,13 @@
 }
 
 .name {
-    width: 60%;
+    width: 70%;
     float: left;
     background-color: #1e90ff;
 }
 
 .manacost {
-    width: 40%;
+    width: 30%;
     float: right;
     text-align: right;
     background-color: #00fa9a;

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" href="mtg_card.css">
-        <link rel="stylesheet" href="cardplate.css">
+        <link rel="stylesheet" href="card_printplate.css">
     </head>
     <body>
         <%- require "erb" -%>
@@ -19,8 +19,7 @@
                 <%- if colcnt % COLUMN == 0 then -%>
                     <div class="cardRow">
                 <%- end -%>
-                <div class="frame"></div>
-                <%- erb.result(binding) -%>
+                <%- _erbout += erb.result(binding) -%>
                 <%- if colcnt % COLUMN == COLUMN - 1 then -%>
                     </div>
                     <%- if rowcnt % ROW == ROW - 1 then -%>
