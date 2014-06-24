@@ -4,12 +4,16 @@
  */ 
  
 .frame {
-    /*
-    width: 826px;
-    height: 1169px; 
-    */
-    width: 275px;
-    height: 389px; 
+    /* width: 826px; */
+    /* height: 1169px;  */
+    /* width: 275px; */
+    /* height: 389px;  */
+    width: 210px;
+    height: 297px; 
+    /* width: 180px; */
+    /* height: 254px;  */
+    font-size: small; 
+    border : thin solid;
     margin: 0;
     padding: 10px;
     background-color: #ffd700;
