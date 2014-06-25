@@ -12,11 +12,16 @@
     height: 297px; 
     /* width: 180px; */
     /* height: 254px;  */
-    font-size: small; 
-    border : thin solid;
+    font-size: 8pt; 
     margin: 0;
     padding: 10px;
     background-color: #ffd700;
+}
+
+.header, .illust, .middle, .oracle, .frame, .power, .toughness
+{
+    border-width: thin;
+    border-style: solid;
 }
 
 .header, .illust, .middle, .oracle, .footer
@@ -27,7 +32,7 @@
 
 .header, .middle, .footer
 {
-    height: 9%; 
+    height: 5%; 
     overflow: hidden;
     padding : 1px;
 }
@@ -75,7 +80,7 @@
 
 .oracle {
     clear: both;
-    height: 40%;
+    height: 50%;
     background-color: #ffb6c1;
 }
 
@@ -115,13 +120,13 @@
 }
 
 .power {
-    width: 50%;
+    width: 45%;
     float: left;
     background-color: #4169e1;
 }
 
 .toughness {
-    width: 50%;
+    width: 45%;
     float: right;
     background-color: #ff1493;
 }
