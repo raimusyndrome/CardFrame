@@ -22,7 +22,7 @@
                 <%- if colcnt % COLUMN == COLUMN - 1 then -%>
                     </div>
                     <%- if rowcnt % ROW == ROW - 1 then -%>
-                        <div class="pagebreak" ></div>
+                        <div class="pagebreak" ><%= (rowcnt / ROW) + 2 %>page</div>
                     <%- end -%>
                     <%- rowcnt += 1 -%>
                 <%- end -%>
