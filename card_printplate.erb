@@ -11,7 +11,7 @@
         <%- require "./mtg_card_data.rb" -%>
         <%- ROW = 3; COLUMN = 3 -%>
         <%- rowcnt = 0; colcnt = 0 -%>
-        <%- cardData = MTGParser "printData/M14_printer.csv" -%>
+        <%- cardData = MTGParser "printData/loadData.csv" -%>
         <%- erb = ERB.new(File.read("_mtg_card.html.erb"), nil, nil, "_erbout2") -%>
         <%- cardData.each do |card| -%>
             <%- card.printNum.times do |x| -%>
