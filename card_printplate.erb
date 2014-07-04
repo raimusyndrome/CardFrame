@@ -9,21 +9,24 @@
     <body>
         <%- require "erb" -%>
         <%- require "./mtg_card_data.rb" -%>
-        <%- ROW = 3; COLUMN = 3 -%>
+        <%- ROW = defined?(frameRow) ? frameRow : 3 -%>
+        <%- COLUMN = defined?(frameCol) ? frameCol : 3 -%>
         <%- rowcnt = 0; colcnt = 0 -%>
         <%- cardData = MTGParser "printData/loadData.csv" -%>
         <%- erb = ERB.new(File.read("_mtg_card.html.erb"), nil, nil, "_erbout2") -%>
         <%- cardData.each do |card| -%>
             <%- card.printNum.times do |x| -%>
+                <%- if colcnt == 0 && rowcnt == 0 then -%>
+                    <div><%= (rowcnt / ROW) + 1 %>page</div>
+                <%- elsif colcnt % COLUMN == 0 && rowcnt % ROW == 0 then -%>
+                    <div class="pagebreak" ><%= (rowcnt / ROW) + 1 %>page</div>
+                <%- end -%>
                 <%- if colcnt % COLUMN == 0 then -%>
                     <div class="cardRow">
                 <%- end -%>
                 <%- _erbout += erb.result(binding) -%>
                 <%- if colcnt % COLUMN == COLUMN - 1 then -%>
                     </div>
-                    <%- if rowcnt % ROW == ROW - 1 then -%>
-                        <div class="pagebreak" ><%= (rowcnt / ROW) + 2 %>page</div>
-                    <%- end -%>
                     <%- rowcnt += 1 -%>
                 <%- end -%>
                 <%- colcnt += 1 -%>

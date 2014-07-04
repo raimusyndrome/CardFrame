@@ -1,7 +1,8 @@
+# coding: utf-8
 require "CSV"
 
 class CardData
-    attr_reader :printNum, :rarity, :cost
+    attr_reader :printNum 
 
     module ColNo
         COST = 2
@@ -36,6 +37,9 @@ class CardData
 
         PRINTNUM = 44
     end
+
+    RARITY_NAME = ["コモン", "アンコモン", "レア", "神話レア"]
+    RARITY_SYMBOL = ["C", "U", "R", "M"]
 
     def initialize
         @face = Side.new(SideType::FACE)
@@ -81,6 +85,14 @@ class CardData
         return @face.getType
     end
 
+    def getCost
+        return @cost
+    end
+
+    def getRarity
+        return RARITY_SYMBOL[RARITY_NAME.find_index(@rarity)]
+    end
+
     def getText
         return @face.text
     end
@@ -116,6 +128,10 @@ class CardData
             else
                 getBackData(row)
             end
+            # 暫定処置
+            if isPlanesWalker then
+                @power = @loyalty
+            end
         end
 
         def getFaceData row
@@ -132,6 +148,7 @@ class CardData
 
         def getBackData row
             @name = row[ColNo::REV_NAME];
+            # 未完
         end
 
         def getType
@@ -147,14 +164,23 @@ class CardData
         end
 
         def getParam
-            if @loyalty.nil? then
+            if isCreature then
                 str = @power.to_s + " / " + @toughness.to_s
-            else
+            elsif isPlanesWalker
                 str = @loyalty.to_s
+            else
+                str = "";
             end
             return str;
         end
 
+        def isCreature
+            return @type == "クリーチャー"
+        end
+
+        def isPlanesWalker
+            return @type == "プレインズウォーカー"
+        end
     end
 end
 
